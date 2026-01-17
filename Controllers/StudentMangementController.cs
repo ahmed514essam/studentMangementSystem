@@ -9,6 +9,7 @@ using studentMangementSystem.Services;
 namespace studentMangementSystem.Controllers
 {
     [AdminAuthorize]
+    // Student Management Controller
 
     public class StudentMangementController : Controller
     {
