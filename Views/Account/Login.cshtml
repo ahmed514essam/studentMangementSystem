@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .login-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+        max-width: 450px;
+        margin: 80px auto;
+        padding: 35px;
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        padding-left: 40px; /* space for icon */
+    }
+
+    .input-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6a11cb;
+    }
+
+    .btn-custom {
+        border-radius: 8px;
+        font-weight: 600;
+        background: #2575fc;
+        border: none;
+        transition: 0.3s;
+    }
+
+        .btn-custom:hover {
+            background: #6a11cb;
+        }
+
+    @@keyframes fadeIn {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+</style>
+
+<div class="login-card">
+    <div class="text-center mb-4">
+        <p class="text-muted">Welcome back! Please log in to continue.</p>
+    </div>
+
+    <!-- Login Form -->
+    <form method="post">
+        <div class="mb-3 position-relative">
+            <label for="email" class="form-label fw-semibold">
+
+                Email address</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required />
+        </div>
+
+        <div class="mb-3 position-relative">
+
+            <label for="password" class="form-label fw-semibold">
+
+                Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required />
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+            @* <a href="#" class="text-primary">Forgot password?</a> *@
+        </div>
+
+        <button type="submit" class="btn btn-custom w-100">
+            <i class="fa-solid fa-right-to-bracket me-2"></i> Log In
+        </button>
+    </form>
+</div>

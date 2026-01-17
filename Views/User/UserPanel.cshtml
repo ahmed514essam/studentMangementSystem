@@ -1,0 +1,53 @@
+﻿@model studentMangementSystem.Models.Student
+
+<div class="container mt-4">
+    <h2 class="mb-4">Welcome, @Model.Name 👋</h2>
+
+    <div class="row">
+        <!-- بيانات الطالب -->
+        <div class="col-md-6">
+            <div class="card mb-3 shadow">
+                <div class="card-header bg-primary text-white">My Info</div>
+                <div class="card-body">
+                    <p><strong>Email:</strong> @Model.Email</p>
+                    <p><strong>Phone:</strong> @Model.PhoneNumber</p>
+                    <p><strong>Department:</strong> @Model.Department.Name</p>
+                    <p><strong>Study Year:</strong> @Model.StudyYear.Name</p>
+                    <p><strong>Sport:</strong> @Model.Sport.Name</p>
+                    <p><strong>Status:</strong> @Model.Status.Name</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- المواد والدرجات -->
+        <div class="col-md-6">
+            <div class="card mb-3 shadow">
+                <div class="card-header bg-success text-white">My Subjects</div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Credit Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ss in Model.StudentSubjects)
+                            {
+                                <tr>
+                                    <td>@ss.Subject.Name</td>
+                                    @* <td>@(ss.TotalMarks != 0 ? ss.TotalMarks.ToString("0.##") : "-")</td> *@
+                                    <td>@ss.Subject.CreditHours</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+                    <a asp-controller="User" asp-action="RegisterSubjects" class="btn btn-primary p-2 fw-bold ">Register Subjects</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

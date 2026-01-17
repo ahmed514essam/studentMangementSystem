@@ -1,0 +1,153 @@
+﻿@model AddStudentVM
+
+@{
+    ViewData["Title"] = "Add New Student";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-header bg-dark text-white text-center py-3">
+                    <h3 class="mb-0">➕ Add New Student</h3>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form asp-action="AddStudent" method="post">
+
+                        <div class="row g-3">
+
+                            <!-- Student Name -->
+                            <div class="col-md-6">
+                                <label asp-for="Name" class="form-label fw-bold">Student Name</label>
+                                <input asp-for="Name" class="form-control" placeholder="Enter full name" required />
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <label asp-for="Email" class="form-label fw-bold">Email</label>
+                                <input asp-for="Email" class="form-control" type="email" placeholder="example@mail.com" required />
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="col-md-6">
+                                <label asp-for="PhoneNumber" class="form-label fw-bold">Phone Number</label>
+                                <input asp-for="PhoneNumber" class="form-control" placeholder="01xxxxxxxxx" />
+                            </div>
+
+                            <!-- Address -->
+                            <div class="col-md-6">
+                                <label asp-for="Address" class="form-label fw-bold">Address</label>
+                                <input asp-for="Address" class="form-control"  />
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <label asp-for="Password" class="form-label fw-bold">Password</label>
+                                <input asp-for="Password" class="form-control" type="password"  required />
+                            </div>
+
+
+
+                            <!-- Enroll Date -->
+
+
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Enroll Date</label>
+                                <input asp-for="InrollDate" class="form-control" type="date" />
+                            </div>
+
+                            <!-- Department -->
+                            @* <div class="col-md-6">
+                                <label class="form-label fw-bold">Department</label>
+                                <input asp-for="DepartmentId" class="form-control" placeholder="Enter Department ID" />
+                            </div> *@
+
+
+                            <div class="col-md-6">
+                                <label asp-for="DepartmentId" class="col-form-label fw-bold">Department</label>
+                                <select class="form-control" asp-for="DepartmentId" name="DepartmentId">
+                                    <option value="">-- Choose Department --</option>
+                                    @foreach (var dept in ViewBag.Departments)
+                                    {
+                                        <option value="@dept.Id">@dept.Name</option>
+                                    }
+                                </select>
+
+								</div>
+
+
+
+
+                            <!-- Study Year -->
+                            <div class="col-md-6">
+                                <label asp-for="StudyYearId" class="form-label fw-bold">Study Year</label>
+                                @* <input  class="form-control" placeholder="Enter Study Year " /> *@
+                                <select asp-for="StudyYearId" class="form-control" name="StudyYearId">
+                                    <option value="">-- Choose Study Year --</option>
+                                    @foreach (var o in ViewBag.StudyYears)
+                                    {
+                                        <option value="@o.Id">@o.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <!-- Sport -->
+                            <div class="col-md-6">
+                                <label asp-for="SportId" class="form-label fw-bold">Sport</label>
+                                
+                                <select asp-for="SportId" class="form-control" name="SportId">
+                                    <option value="">-- Sports --</option>
+                                    @foreach (var s in ViewBag.Sports)
+                                    {
+                                        <option value="@s.Id">@s.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="col-md-6">
+
+                                <label asp-for="StatusId" class="form-label fw-bold">Status</label>
+
+                                <select asp-for="StatusId" class="form-control" name="StatusId">
+                                    <option value="">-- Status --</option>
+                                    @foreach (var s in ViewBag.Status)
+                                    {
+                                        <option value="@s.Id">@s.Name</option>
+                                    }
+                                </select>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success px-5 py-2 fw-bold">
+                                ✔ Save Student
+                            </button>
+
+                            <a asp-controller="StudentMangement" asp-action="ShowStudents" class="btn btn-secondary px-4 ms-2">
+                                ↩ Back to List
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

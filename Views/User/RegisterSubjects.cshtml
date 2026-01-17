@@ -1,0 +1,25 @@
+﻿@model Student
+
+<h3 class="mb-3">Register Subjects</h3>
+
+<form asp-action="RegisterSubjects" method="post">
+
+    @foreach (var subject in ViewBag.Subjects)
+    {
+        <div class="form-check mb-2">
+            <input class="form-check-input"
+                   type="checkbox"
+                   name="subjectIds"
+                   value="@subject.Id"
+                   id="sub_@subject.Id" />
+
+            <label class="form-check-label" for="sub_@subject.Id">
+                @subject.Name
+            </label>
+        </div>
+    }
+
+    <button type="submit" class="btn btn-primary mt-3">
+        Register
+    </button>
+</form>

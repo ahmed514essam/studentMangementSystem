@@ -1,0 +1,88 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "AddDepartment";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-header bg-dark text-white text-center py-3">
+                    <h3 class="mb-0">➕ Add Department</h3>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form asp-action="AddDepartment" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="row g-3">
+
+                            <!-- Student Name -->
+                            <div class="col-md-6">
+                                <label asp-for="Name" class="form-label fw-bold">Department Name</label>
+                                <input asp-for="Name" class="form-control"  required />
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <label asp-for="DepartmentHead" class="form-label fw-bold"></label>
+                                <input asp-for="DepartmentHead" class="form-control"  required />
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success px-5 py-2 fw-bold">
+                                ✔ Save Department
+                            </button>
+
+                            <a asp-controller="Department" asp-action="ShowAllDepartments" class="btn btn-secondary px-4 ms-2">
+                                ↩ Back to List
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

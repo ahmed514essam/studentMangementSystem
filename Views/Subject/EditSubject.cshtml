@@ -1,0 +1,125 @@
+﻿@model Subject
+@{
+    ViewData["Title"] = "EditSubject";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-header bg-dark text-white text-center py-3">
+                    <h3 class="mb-0">➕ Add New Subject</h3>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form asp-action="EditSubject" method="post">
+
+                        <div class="row g-3">
+
+                            <!-- Student Name -->
+                            <div class="col-md-6">
+                                <label asp-for="Name" class="form-label fw-bold">Student Name</label>
+                                <input asp-for="Name" class="form-control" placeholder="Enter full name" required value="Name" />
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <label asp-for="CreditHours" class="form-label fw-bold">Credit Hours</label>
+                                <input asp-for="CreditHours" class="form-control" type="number" required value="CreditHours" />
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="col-md-6">
+                                <label asp-for="SubjectDoctor" class="form-label fw-bold">Subject Doctor</label>
+                                <input asp-for="SubjectDoctor" class="form-control" value="SubjectDoctor" />
+                            </div>
+
+
+
+
+
+                            <div class="col-md-6">
+                                <label asp-for="DepartmentId" class="col-form-label fw-bold">Department</label>
+                                <select class="form-control" asp-for="DepartmentId" name="DepartmentId">
+                                    <option value="DepartmentId">-- Choose Department --</option>
+                                    @foreach (var dept in ViewBag.Departments)
+                                    {
+                                        <option value="@dept.Id">@dept.Name</option>
+                                    }
+                                </select>
+
+                            </div>
+
+
+
+
+                            <!-- Study Year -->
+                            <div class="col-md-6">
+                                <label asp-for="StudyYearId" class="form-label fw-bold">Study Year</label>
+                                @* <input  class="form-control" placeholder="Enter Study Year " /> *@
+                                <select asp-for="StudyYearId" class="form-control" name="StudyYearId">
+                                    <option value="StudyYearId">-- Choose Study Year --</option>
+                                    @foreach (var o in ViewBag.StudyYears)
+                                    {
+                                        <option value="@o.Id">@o.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success px-5 py-2 fw-bold">
+                                ✔ Update
+                            </button>
+
+                            <a asp-controller="Subject" asp-action="Show" class="btn btn-secondary px-4 ms-2">
+                                ↩ Back to List
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
